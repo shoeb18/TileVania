@@ -229,8 +229,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635537c4b3daeac4290c701770619471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  jumpForce: 17
+  movementSpeed: 6
+  jumpForce: 15
+  climbSpeed: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  ladderLayer:
+    serializedVersion: 2
+    m_Bits: 512
