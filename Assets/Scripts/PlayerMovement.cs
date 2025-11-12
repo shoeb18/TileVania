@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float movementSpeed = 10f;
     [SerializeField] float jumpForce = 10f;
     [SerializeField] float climbSpeed = 10f;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform bulletSpawnTransform;
 
     Vector2 moveInput;
     Rigidbody2D rb;
@@ -91,7 +93,10 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
-        
+        if (value.isPressed && !isDead)
+        {
+            Instantiate(bulletPrefab, bulletSpawnTransform.position, bulletPrefab.transform.rotation);
+        }
     }
 
     void OnJump(InputValue value)
