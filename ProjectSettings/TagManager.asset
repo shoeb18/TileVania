@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Hazards
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Ladder
   - Background
   - Bouncing
-  - 
+  - Hazards
   - 
   - 
   - 

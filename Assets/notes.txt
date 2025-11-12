@@ -1,0 +1,11 @@
+Rule Tiles
+Sprite Sheet Animation for player (idle, run, climb)
+Composite Collider For Tilemap to merge all colliders
+New Input System is OP
+changing animation state in code
+added ground layermask for not jump again if player is not on the ground
+climb the ladder
+cinemachine
+cinemachine confiner
+cinemachine state driven cameras - uses diff cameras based on the animation state of character
+enemy patrol AI

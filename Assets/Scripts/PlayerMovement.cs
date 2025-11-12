@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool playerHasHorizontalVelocity;
     private bool playerHasVerticalVelocity;
     private float defaultGravityScale;
+    bool isDead = false;
 
     void Awake()
     {
@@ -69,10 +70,28 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsClimbing", false);
         }
     }
+
+    public void PlayerDeath()
+    {
+        if (!isDead)
+        {
+            isDead = true;
+            animator.SetTrigger("Dead");
+            rb.linearVelocity = new Vector2(10f, 10f);
+            capsuleCollider.enabled = false;
+            feetCollider.enabled = false;
+            this.enabled = false;
+        }
+    }
     
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    void OnAttack(InputValue value)
+    {
+        
     }
 
     void OnJump(InputValue value)
@@ -80,6 +99,14 @@ public class PlayerMovement : MonoBehaviour
         if (value.isPressed && feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             rb.AddForceY(jumpForce, ForceMode2D.Impulse);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Hazards"))
+        {
+            PlayerDeath();
         }
     }
 }
