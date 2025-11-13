@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
             capsuleCollider.enabled = false;
             feetCollider.enabled = false;
             this.enabled = false;
+            GameManager.Instance.PlayerDamage();
         }
     }
     
